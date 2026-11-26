@@ -28,6 +28,7 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity<Produto> criar(@RequestBody Produto produto) {
+        produto.setId(null);
         Produto salvo = produtoRepository.save(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }

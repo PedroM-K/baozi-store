@@ -28,6 +28,7 @@ public class ClienteController {
 
     @PostMapping
     public ResponseEntity<Cliente> criar(@RequestBody Cliente cliente) {
+        cliente.setId(null);
         Cliente salvo = clienteRepository.save(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }

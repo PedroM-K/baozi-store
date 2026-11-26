@@ -28,6 +28,7 @@ public class PedidoController {
 
     @PostMapping
     public ResponseEntity<Pedido> criar(@RequestBody Pedido pedido) {
+        pedido.setId(null);
         Pedido salvo = pedidoRepository.save(pedido);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }
